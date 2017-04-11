@@ -1,0 +1,18 @@
+<md-toolbar color="primary">
+  <md-icon (click)="selector='users'">home</md-icon>
+  Test
+</md-toolbar>
+<div class="app-content">
+  <div *ngIf="selector==='users'">
+    Users
+    <app-user *ngFor="let user of users" [user]="user" (click)="userClicked(user)"></app-user>
+  </div>
+  <div *ngIf="selector==='posts'">
+    Posts from <b>{{currentUser.username}}</b> <a [href]="'mailto:'+currentUser.email" (click)="emailClicked(currentUser.email);$event.preventDefault();$event.stopPropagation();">{{currentUser.email}}</a>
+    <app-post *ngFor="let post of posts" [post]="post" (click)="postClicked(post)"></app-post>
+  </div>
+  <div *ngIf="selector==='comments'">
+    Comments on <b>{{currentPost.title}}</b>
+    <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
+  </div>
+</div>

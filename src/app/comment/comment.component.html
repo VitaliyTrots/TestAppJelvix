@@ -1,0 +1,10 @@
+<md-card class="gray">
+  <b>{{comment?.name}}</b>
+  <div>
+    {{comment?.body}}
+  </div>
+  <div>
+    <a [href]="'mailto:'+comment?.email" (click)="emailClicked(comment?.email);$event.preventDefault();$event.stopPropagation();">{{comment?.email}}</a>
+  </div>
+</md-card>
+<br>

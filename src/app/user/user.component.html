@@ -1,0 +1,10 @@
+<md-card class="gray">
+  <b>{{user?.username}}</b>
+  <div>
+    email: <a [href]="'mailto:'+user?.email" (click)="emailClicked(user?.email);$event.preventDefault();$event.stopPropagation();">{{user?.email}}</a>
+  </div>
+  <div>
+    company: {{user?.company.name}}
+  </div>
+</md-card>
+<br>
